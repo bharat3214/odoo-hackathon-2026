@@ -1,0 +1,57 @@
+
+/home/bharatkumar/Downloads/inventory-management/src/app/(dashboard)/move-history/page.tsx
+  22:19  warning  'Search' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  66:21  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/bharatkumar/Downloads/inventory-management/src/app/(dashboard)/move-history/page.tsx:66:21
+  64 |   }, []);
+  65 |
+> 66 |   useEffect(() => { fetchMoves(); }, [fetchMoves]);
+     |                     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  67 |
+  68 |   function getLocationDisplay(loc: { name: string; warehouse: { name: string } } | null) {
+  69 |     if (!loc) return "—";  react-hooks/set-state-in-effect
+
+/home/bharatkumar/Downloads/inventory-management/src/app/(dashboard)/operations/[id]/page.tsx
+  23:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/bharatkumar/Downloads/inventory-management/src/app/(dashboard)/page.tsx
+  78:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/bharatkumar/Downloads/inventory-management/src/components/layout/sidebar.tsx
+    7:10  warning  'Button' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+   18:10  warning  'Separator' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+   34:3   warning  'Sparkles' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+   75:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/bharatkumar/Downloads/inventory-management/src/components/layout/sidebar.tsx:75:7
+  73 |   useEffect(() => {
+  74 |     if (item.children?.some((c) => pathname.startsWith(c.href))) {
+> 75 |       setOpen(true);
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  76 |     }
+  77 |   }, [pathname, item.children]);
+  78 |  react-hooks/set-state-in-effect
+  242:53  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-explicit-any
+
+/home/bharatkumar/Downloads/inventory-management/src/components/operations/operations-page.tsx
+   9:29  warning  'CardHeader' is defined but never used       @typescript-eslint/no-unused-vars
+   9:41  warning  'CardTitle' is defined but never used        @typescript-eslint/no-unused-vars
+  12:18  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  40:10  warning  'StatusStepper' is defined but never used    @typescript-eslint/no-unused-vars
+
+✖ 14 problems (5 errors, 9 warnings)
+
